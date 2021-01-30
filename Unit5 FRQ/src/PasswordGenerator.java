@@ -16,10 +16,9 @@ public class PasswordGenerator {
 
     public String pwGen() {
         Random randgen = new Random();
-        password = null;
-        password += prefix;
+        password = prefix;
         password += ".";
-        int rand = randgen.nextInt((int)Math.pow(10, digits + 1) - 1);
+        int rand = randgen.nextInt((int)Math.pow(10, digits + 1));
         password += rand;
         passcount++;
         return password;
@@ -27,5 +26,11 @@ public class PasswordGenerator {
 
     public int pwCount() {
         return passcount;
+    }
+
+    public static void main(String[] args) {
+        PasswordGenerator pass = new PasswordGenerator(4, "abc");
+        System.out.println(pass.pwGen());
+        System.out.println(pass.pwCount());
     }
 }
